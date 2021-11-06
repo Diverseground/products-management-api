@@ -18,6 +18,7 @@ const ProductSchema = new Schema(
     price: {
       type: Number,
       required: [true, "Price is required"],
+      min: [0, "Price must be greater than 0"],
     },
     quantity: {
       type: Number,
@@ -30,38 +31,22 @@ const ProductSchema = new Schema(
     packageType: {
       type: String,
       required: [true, "Package Type is required"],
-      enum: [
-        "Carton",
-        "Bag",
-        "Bottle, Glass",
-        "Box",
-        "Packet",
-        "Bottle, Plastic",
-        "Can",
-        "Not Applicable",
-      ],
     },
     unitPrice: {
       type: Number,
       required: [true, "Unit Price is required"],
+      min: [0, "Unit Price must be greater than 0"],
     },
     taxRate: {
       type: Number,
       required: [true, "Tax Rate is required"],
-    },
-    rating: {
-      type: Number,
-      required: [true, "Rating is required"],
+      min: [0, "Tax Rate must be greater than 0"],
     },
     description: {
       type: String,
       required: [true, "Description is required"],
       minlength: [2, "Description must be at least 2 characters"],
       maxlength: [500, "Description must be less than 500 characters"],
-    },
-    weight: {
-      type: Number,
-      required: [true, "Weight is required"],
     },
     createdBy: {
       type: Schema.Types.ObjectId,
