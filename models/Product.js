@@ -26,7 +26,6 @@ const ProductSchema = new Schema(
     unit: {
       type: String,
       required: [true, "Product Unit is required"],
-      enum: ["kg", "L", "g", "mL", "mg"],
     },
     packageType: {
       type: String,
