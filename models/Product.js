@@ -48,6 +48,10 @@ const ProductSchema = new Schema(
       minlength: [2, "Description must be at least 2 characters"],
       maxlength: [500, "Description must be less than 500 characters"],
     },
+    upc: {
+      type: Number,
+      required: [true, "UPC is required"],
+    },
     createdBy: {
       type: Schema.Types.ObjectId,
       ref: "User",
